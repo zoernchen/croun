@@ -81,7 +81,28 @@ def prnd(n):
                 return rnd(-m * r, k)
         else:
             return 0
-    
+
+
+"""
+similar to drnd
+returns number of digits after comma for correctly rounded numbers after the drnd scheme
+"""
+
+def getk(n):
+    decimals = 0
+    while abs(n)<1:
+        decimals = decimals + 1
+        n = Decimal(n*10)
+    while abs(n)>10:
+        decimals = decimals -1
+        n = Decimal(n*10)   
+    if 10>abs(n)>=1:
+        if 0<int(n)<3:
+            k = 1 + decimals
+            return k 
+        else:
+            k = 0 + decimals
+            return k 
 
 # TEST FOR rnd
 #print("(two decimals) 3.455 rounds to", rnd(3.455, 2), "(should be 3.46)")
