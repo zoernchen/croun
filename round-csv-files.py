@@ -31,6 +31,8 @@ xerr = data[:,2]
 y1err = data[:,3]
 
 #round erors with prnd
+#prnd rounds errors to one digit  when that digit is >2 and to two digits if that digit is 1 or 2
+#(digit = first number unequal zero)
 rxerr=([])
 ry1err=([])
 for i in range(0, len(xerr)):
